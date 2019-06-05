@@ -2,8 +2,11 @@ package main
 
 import (
 	"log"
+	"net/http"
 	"strconv"
 
+	"github.com/wpferg/services/httpHandlers"
+	"github.com/wpferg/services/storage"
 	"github.com/wpferg/services/structs"
 )
 
@@ -24,12 +27,14 @@ func main() {
 	log.Println("Creating dummy messages")
 
 	storage.Add(createMessage("Testing", "1234"))
-	storage.Add(createMessage("Testing Again", "5679"))
+	storage.Add(createMessage("Testing Again", "5678"))
 	storage.Add(createMessage("Testing A Third Time", "9012"))
+
+	log.Println("Attempting to start HTTP Server.")
 
 	http.HandleFunc("/", httpHandlers.HandleRequest)
 
-	var err = http.ListenandServer(":"+strconv.Itoa(PORT), nil)
+	var err = http.ListenAndServe(":"+strconv.Itoa(PORT), nil)
 
 	if err != nil {
 		log.Panicln("Server failed starting. Error: %s", err)
