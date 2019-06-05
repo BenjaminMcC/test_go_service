@@ -5,7 +5,7 @@ import "log"
 import "github.com/wpferg/services/httpHandlers/httpUtils"
 
 func HandleRequests(w http.ResponseWriter, r *http.Request) {
-	log.Prinln("Incoming Request:", r.Method)
+	log.Println("Incoming Request:", r.Method)
 	switch r.Method {
 	case http.MethodGet:
 		List(w, r)
