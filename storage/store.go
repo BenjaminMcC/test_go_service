@@ -5,21 +5,22 @@ import (
 )
 
 var store structs.MessageList
-var currentMaxID = 1
+var currentMaxId = 1
 
 func Get() structs.MessageList {
 	return store
 }
 
 func Add(message structs.Message) int {
-	message.ID = currentMaxID
-	currentMaxID++
+	message.ID = currentMaxId
+	currentMaxId++
 	store = append(store, message)
 	return message.ID
 }
 
 func Remove(id int) bool {
 	index := -1
+
 	for i, message := range store {
 		if message.ID == id {
 			index = i
@@ -30,5 +31,6 @@ func Remove(id int) bool {
 		store = append(store[:index], store[index+1:]...)
 	}
 
+	// Returns true if item was found & removed
 	return index != -1
 }
