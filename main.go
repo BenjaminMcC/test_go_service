@@ -5,7 +5,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/wpferg/services/httpHandlers"
+	"TEST_GO_SERVICE/httpHandlers"
+
 	"github.com/wpferg/services/storage"
 	"github.com/wpferg/services/structs"
 )
@@ -24,6 +25,7 @@ func createMessage(message string, sender string) structs.Message {
 }
 
 func main() {
+
 	log.Println("Creating dummy messages")
 
 	storage.Add(createMessage("Testing", "1234"))
@@ -32,11 +34,14 @@ func main() {
 
 	log.Println("Attempting to start HTTP Server.")
 
-	http.HandleFunc("/", httpHandlers.HandleRequest)
+	httpHandlers.HandleRequests()
 
 	var err = http.ListenAndServe(":"+strconv.Itoa(PORT), nil)
-
 	if err != nil {
 		log.Panicln("Server failed starting. Error: %s", err)
 	}
+	log.Println("here 1")
+
+	log.Println("here")
+
 }
