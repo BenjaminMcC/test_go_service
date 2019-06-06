@@ -1,7 +1,7 @@
 package storage
 
 import (
-	"github.com/wpferg/services/structs"
+	"github.com/BenjaminMcC/test_go_service/structs"
 )
 
 var store structs.MessageList
@@ -20,8 +20,10 @@ func Add(message structs.Message) int {
 
 func Remove(id int) bool {
 	index := -1
-	for i, message := rnage store {
-		if message.ID
+	for i, message := range store {
+		if message.ID == id {
+			index = i
+		}
 	}
 
 	if index != -1 {
@@ -30,4 +32,3 @@ func Remove(id int) bool {
 
 	return index != -1
 }
-

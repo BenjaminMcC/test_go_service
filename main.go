@@ -5,10 +5,10 @@ import (
 	"net/http"
 	"strconv"
 
-	"TEST_GO_SERVICE/httpHandlers"
+	"github.com/BenjaminMcC/test_go_service/httpHandlers"
 
-	"github.com/wpferg/services/storage"
-	"github.com/wpferg/services/structs"
+	"github.com/BenjaminMcC/test_go_service/storage"
+	"github.com/BenjaminMcC/test_go_service/structs"
 )
 
 const PORT = 8080

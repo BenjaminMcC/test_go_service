@@ -5,9 +5,9 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/wpferg/services/httpHandlers/httpUtils"
-	"github.com/wpferg/services/storage"
-	"github.com/wpferg/services/structs"
+	"github.com/BenjaminMcC/test_go_service/httpHandlers/httpUtils"
+	"github.com/BenjaminMcC/test_go_service/storage"
+	"github.com/BenjaminMcC/test_go_service/structs"
 )
 
 func Remove(w http.ResponseWriter, r *http.Request) {

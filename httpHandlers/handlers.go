@@ -4,8 +4,9 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/BenjaminMcC/test_go_service/httpHandlers/httpUtils"
+
 	"github.com/prometheus/client_golang/prometheus/promhttp"
-	"github.com/wpferg/services/httpHandlers/httpUtils"
 )
 
 func homePage(w http.ResponseWriter, r *http.Request) {
